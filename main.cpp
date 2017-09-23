@@ -9,7 +9,7 @@
 #include <sstream>
 
 #define SIZE 10000
-#define NOT_FOUND "Not found"
+
 using namespace std;
 
 char* clean_char(char *var) {
@@ -90,6 +90,8 @@ int main() {
     string test[SIZE];
     string line;
 
+    clicks = clock();
+
     ifstream infile("test.txt");
 
     if(!infile){
@@ -105,8 +107,6 @@ int main() {
     for (int i = 0; i < index; i++){
         cout << searchOnlyKeywords(test[i],"ip 7",i+1) << endl;
     }
-
-    clicks = clock();
     secs   = ((float)clicks)/CLOCKS_PER_SEC;
     cout << "Operation took " << " (" << secs << " seconds)\n";
     return 0;
