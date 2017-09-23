@@ -45,7 +45,7 @@ string searchOnlyKeywords(string txt,string key,int line){
 
     string array[SIZE];
     string tmp,show;
-    int index = 0;
+    int index = 0,keySize = 0;
 
     show = txt;
 
@@ -62,6 +62,7 @@ string searchOnlyKeywords(string txt,string key,int line){
         array[index] = tmp;
         index++;
     }
+    keySize = index;
     index = 0;
     for (int i = 0; i < array->size(); i++){
         if(txt.find(array[i]) != string::npos){
@@ -74,7 +75,7 @@ string searchOnlyKeywords(string txt,string key,int line){
     ostringstream iss;
     iss << line;
 
-    if(index >= array->size() && index >= 0){
+    if(index >= keySize){
         return iss.str()+"  "+show+" <- suggested result";
     }
 
